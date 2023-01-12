@@ -1,0 +1,64 @@
+{
+  "name": "claimer-io-tech-test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/react-hooks": "^3.4.2",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/classnames": "^2.2.11",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.19.3",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "@types/yup": "^0.29.9",
+    "classnames": "^2.2.6",
+    "formik": "^2.2.1",
+    "framer-motion": "^2.9.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-keyboard-event-handler": "^1.5.4",
+    "react-scripts": "4.0.0",
+    "react-test-renderer": "^17.0.1",
+    "typescript": "^4.0.5",
+    "yup": "^0.29.3"
+  },
+  "scripts": {
+    "build:css": "tailwindcss build src/css/tailwind.css -o src/css/index.css",
+    "prestart": "npm run build:css",
+    "prebuild": "NODE_ENV=production npm run build:css",
+    "start": "react-scripts start",
+    "start:test": "BROWSER=none PORT=8080 npm start",
+    "build": "start-server-and-test start:test http://localhost:8080 cypress:run && npm t -- --watchAll=false && react-scripts build",
+    "build:vercel": "npm run prebuild && npm t -- --watchAll=false && react-scripts build",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress": "start-server-and-test start:test http://localhost:8080 cypress:open",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "cypress": "^4.4.1",
+    "start-server-and-test": "^1.11.5",
+    "tailwindcss": "^1.9.6"
+  }
+}
